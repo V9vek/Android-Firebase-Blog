@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FirebaseBlog</string>
+
+    <string name="et_hint_title">Title</string>
+    <string name="et_hint_description">Description</string>
+    <string name="et_hint_email">Email</string>
+    <string name="et_hint_password">Password</string>
+    <string name="et_hint_username">Username</string>
+    <string name="et_hint_confirm_password">Confirm Password</string>
+
+    <string name="tv_sign_up_here">Sign Up Here</string>
+    <string name="tv_log_in">Log In</string>
+    <string name="tv_login_here">Login Here</string>
+    <string name="tv_new_account">New Account</string>
+
+    <string name="btn_create_post">Create Post</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_select_photo">Select Photo</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="btn_update">Update</string>
+</resources>

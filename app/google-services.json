@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "347142242097",
+    "firebase_url": "https://fir-blog-1dda1.firebaseio.com",
+    "project_id": "fir-blog-1dda1",
+    "storage_bucket": "fir-blog-1dda1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347142242097:android:27a193787b7647c04cfa10",
+        "android_client_info": {
+          "package_name": "com.viveksharma.firebaseblog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347142242097-6tt9q15h46qlje2v0p8534peqlkgdsmr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXKhKw9x019tjDGZwnANiHtTimN3JTIDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347142242097-6tt9q15h46qlje2v0p8534peqlkgdsmr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
