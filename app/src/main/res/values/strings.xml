@@ -18,4 +18,5 @@
     <string name="btn_select_photo">Select Photo</string>
     <string name="btn_sign_up">Sign Up</string>
     <string name="btn_update">Update</string>
+    <string name="firebase_blog_app">© Firebase Blog App</string>
 </resources>

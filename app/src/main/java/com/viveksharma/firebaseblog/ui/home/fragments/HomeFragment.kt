@@ -65,6 +65,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 blogAdapter.differ.submitList(it)
             }
         })
+
+        //OnClickListener
+        blogAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putParcelable("post", it)
+            }
+            this.findNavController().navigate(R.id.action_homeFragment_to_singlePostFragment, bundle)
+        }
     }
 
     private fun setupRecyclerView() {

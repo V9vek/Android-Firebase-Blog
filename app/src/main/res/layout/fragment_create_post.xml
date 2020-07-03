@@ -36,7 +36,7 @@
         android:ems="10"
         android:hint="@string/et_hint_title"
         android:inputType="text"
-        android:maxLength="30"
+        android:maxLength="50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivPostImage" />
@@ -52,7 +52,7 @@
         android:gravity="start"
         android:hint="@string/et_hint_description"
         android:inputType="textMultiLine"
-        android:maxLength="80"
+        android:maxLength="200"
         android:maxLines="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

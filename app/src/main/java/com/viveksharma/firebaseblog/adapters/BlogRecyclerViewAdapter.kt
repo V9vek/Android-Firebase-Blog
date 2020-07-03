@@ -50,6 +50,17 @@ class BlogRecyclerViewAdapter : RecyclerView.Adapter<BlogRecyclerViewAdapter.Pos
                 .into(ivPostImage)
             tvTitle.text = post.title
             tvDescription.text = post.description.smartTruncate(50)
+            setOnClickListener {
+                onItemClickListener?.let {
+                    it(post)
+                }
+            }
         }
+    }
+
+    private var onItemClickListener: ((Post) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Post) -> Unit) {
+        onItemClickListener = listener
     }
 }
