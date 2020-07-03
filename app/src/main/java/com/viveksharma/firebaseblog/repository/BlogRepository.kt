@@ -30,7 +30,8 @@ class BlogRepository(
     suspend fun uploadProfileImage(photoUri: Uri): Uri {
         val filename = UUID.randomUUID().toString()
         val ref = storageRef.child("profileImages/$filename")
-        ref.putFile(photoUri).await()                                                           //uploaded image file
+        ref.putFile(photoUri)
+            .await()                                                           //uploaded image file
         return ref.downloadUrl.await()                                                          //getting image file uri
     }
 
@@ -57,7 +58,8 @@ class BlogRepository(
     suspend fun uploadPostImage(uri: Uri): Uri {
         val filename = UUID.randomUUID().toString()
         val ref = storageRef.child("postImages/$filename")
-        ref.putFile(uri).await()                                                        //uploading image file
+        ref.putFile(uri)
+            .await()                                                        //uploading image file
         return ref.downloadUrl.await()                                                  //getting its uploaded url
     }
 
@@ -100,6 +102,22 @@ class BlogRepository(
                     updatedUserMap, SetOptions.merge()
                 ).await()
             }
+
+            updatePosts(currentUser, updatedUserMap)
+        }
+    }
+
+    private suspend fun updatePosts(currentUser: User, updatedUserMap: Map<String, Any>) {
+        val postCollectionRef = firestoreRef.collection("posts")
+        val postQuery = postCollectionRef
+            .whereEqualTo("email", currentUser.email)
+            .get()
+            .await()
+
+        for (document in postQuery.documents){
+            postCollectionRef.document(document.id).set(
+                updatedUserMap, SetOptions.merge()
+            ).await()
         }
     }
 }

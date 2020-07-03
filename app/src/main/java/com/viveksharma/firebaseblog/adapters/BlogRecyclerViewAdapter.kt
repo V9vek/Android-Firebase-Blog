@@ -42,11 +42,11 @@ class BlogRecyclerViewAdapter : RecyclerView.Adapter<BlogRecyclerViewAdapter.Pos
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val post = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(post.profileImage).placeholder(ivProfileImage.drawable)
+            Glide.with(this).load(post.profileImageUrl).placeholder(ivProfileImage.drawable)
                 .into(ivProfileImage)
             tvUsername.text = post.username
             tvTimestamp.text = convertedDate(post.timestamp)
-            Glide.with(this).load(post.postImage).placeholder(ivPostImage.drawable)
+            Glide.with(this).load(post.postImageUrl).placeholder(ivPostImage.drawable)
                 .into(ivPostImage)
             tvTitle.text = post.title
             tvDescription.text = post.description.smartTruncate(50)
