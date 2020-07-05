@@ -26,7 +26,6 @@ class HomeViewModel(
     val profileImageUri = MutableLiveData<String>()
     var postList = MutableLiveData<ArrayList<Post>>()
 
-
     init {
         getAllPost()
     }
@@ -94,7 +93,7 @@ class HomeViewModel(
         }
     }
 
-    private fun getAllPost() = viewModelScope.launch {
+    private fun getAllPost() {
         getPostsState.postValue(Resource.Loading())
         try {
             postList = blogRepository.getAllPosts()
@@ -105,7 +104,7 @@ class HomeViewModel(
     }
 
     fun setPostImageUri(uri: Uri) {
-        postImageUri.postValue(uri)
+        postImageUri.value = uri
     }
 
     fun donePostImageUri() {

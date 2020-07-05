@@ -37,7 +37,6 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
                     Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
                     this.findNavController()
                         .navigate(R.id.action_createPostFragment_to_homeFragment)
-                    viewModel.donePostState()
                     viewModel.donePostImageUri()
                 }
                 is Resource.Error -> {
@@ -48,6 +47,7 @@ class CreatePostFragment : Fragment(R.layout.fragment_create_post) {
                     showProgressBar()
                 }
             }
+            viewModel.donePostState()
         })
 
         ivBackBtn.setOnClickListener {

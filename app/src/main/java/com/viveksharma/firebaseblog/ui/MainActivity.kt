@@ -17,6 +17,7 @@ import com.viveksharma.firebaseblog.ui.home.HomeViewModel
 import com.viveksharma.firebaseblog.ui.home.HomeViewModelProviderFactory
 import com.viveksharma.firebaseblog.ui.profile.ProfileViewModel
 import com.viveksharma.firebaseblog.ui.profile.ProfileViewModelProviderFactory
+import kotlinx.coroutines.tasks.await
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         storageRef = Firebase.storage.reference
         firestoreRef = Firebase.firestore
+        firestoreRef.clearPersistence()            //clearing the persistent data (cache)
 
         val blogRepository = BlogRepository(auth, storageRef, firestoreRef)
 

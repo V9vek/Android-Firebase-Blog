@@ -114,18 +114,10 @@ class BlogRepository(
             .get()
             .await()
 
-        for (document in postQuery.documents){
+        for (document in postQuery.documents) {
             postCollectionRef.document(document.id).set(
                 updatedUserMap, SetOptions.merge()
             ).await()
         }
     }
 }
-
-
-
-
-
-
-
-

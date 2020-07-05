@@ -2,6 +2,7 @@ package com.viveksharma.firebaseblog.ui.home.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -16,10 +17,13 @@ import com.viveksharma.firebaseblog.ui.home.HomeViewModel
 import com.viveksharma.firebaseblog.utils.Resource
 import kotlinx.android.synthetic.main.fragment_home.*
 
+private const val TAG = "HomeFragment"
+
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var blogAdapter: BlogRecyclerViewAdapter
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -62,16 +66,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         viewModel.postList.observe(viewLifecycleOwner, Observer {
             it?.let {
+                Log.d(TAG, "setAllPosts: $it")
                 blogAdapter.differ.submitList(it)
             }
         })
+
 
         //OnClickListener
         blogAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
                 putParcelable("post", it)
             }
-            this.findNavController().navigate(R.id.action_homeFragment_to_singlePostFragment, bundle)
+            this.findNavController()
+                .navigate(R.id.action_homeFragment_to_singlePostFragment, bundle)
         }
     }
 
